@@ -11,8 +11,8 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import dotenv from 'dotenv';
 dotenv.config({ path: './.env.local' });
 
-const bucketName = process.env.BUCKET_NAME!
-const bucketRegion = process.env.BUCKET_REGION!
+const bucketName = process.env.AWS_BUCKET_NAME!
+const bucketRegion = process.env.AWS_BUCKET_REGION!
 const awsAccessKey = process.env.AWS_ACCESS_KEY!
 const awsSecretAccessKey = process.env.AWS_SECRET_ACCESS_KEY!
 
@@ -48,6 +48,8 @@ app.use(express.json());
 app.post("/api/upload", ClerkExpressRequireAuth(), upload.array("files", 12), async (req: RequireAuthProp<Request>, res: Response) => {
   const files = req.files as Express.Multer.File[];  // Ensure 'files' is treated as an array of files
   const uploadResults = [];
+  console.log(req.auth);
+  
 
   for (const file of files) {
     const params = {
