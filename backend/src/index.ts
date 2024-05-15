@@ -45,16 +45,12 @@ app.use(cors()); // Enable CORS for all requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
-},
-
 // This function will be your route handler
 app.post("/api/upload", ClerkExpressRequireAuth(), upload.array("files", 12), async (req: RequireAuthProp<Request>, res: Response) => {
   const files = req.files as Express.Multer.File[];  // Ensure 'files' is treated as an array of files
   const uploadResults = [];
   console.log(req.auth);
-  
+
 
   for (const file of files) {
     const params = {
@@ -78,7 +74,7 @@ app.post("/api/upload", ClerkExpressRequireAuth(), upload.array("files", 12), as
   }
 
   res.send("Files uploaded successfully");  // Confirm all files were uploaded
-}))
+});
 
 
 const server: http.Server = app.listen(PORT, () => {
