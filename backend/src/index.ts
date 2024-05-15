@@ -37,7 +37,6 @@ declare global {
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// Enable CORS for all routes
 app.use(cors());
 
 // Parse URL-encoded and JSON request bodies
