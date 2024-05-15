@@ -13,7 +13,7 @@ dotenv.config({ path: './.env.local' });
 
 const bucketName = process.env.AWS_BUCKET_NAME!
 const bucketRegion = process.env.AWS_BUCKET_REGION!
-const awsAccessKey = process.env.AWS_ACCESS_KEY!
+const awsAccessKey = process.env.AWS_ACCESS_KEY_IAM!
 const awsSecretAccessKey = process.env.AWS_SECRET_ACCESS_KEY!
 
 const s3 = new S3Client({
