@@ -37,9 +37,11 @@ declare global {
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-
-
-app.use(cors()); // Enable CORS for all requests
+app.use(cors({
+  origin: 'https://cloud-backup-app-fe.vercel.app', // Your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // List of HTTP methods to allow
+  allowedHeaders: ['Content-Type', 'Authorization'] // List of headers to allow
+})); // Enable CORS for all requests
 
 // Parse URL-encoded and JSON request bodies
 app.use(express.urlencoded({ extended: true }));
