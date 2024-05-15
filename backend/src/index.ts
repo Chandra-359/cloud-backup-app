@@ -38,7 +38,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 app.use(cors({
-  origin: 'https://cloud-backup-app-fe.vercel.app', // Your frontend URL
+  origin: ['https://www.cloud-backup-app-fe.vercel.app','https://www.cloud-backup-app-99ebp64q2-chandra-359s-projects.vercel.app/','https://www.cloud-backup-app-fe-git-main-chandra-359s-projects.vercel.app/'], // Your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // List of HTTP methods to allow
   allowedHeaders: ['Content-Type', 'Authorization'] // List of headers to allow
 })); // Enable CORS for all requests
