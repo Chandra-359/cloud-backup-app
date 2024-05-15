@@ -31,7 +31,7 @@ const Homepage = () => {
     // console.log(formData);
 
     try {
-      const response = await fetch("https://cloud-backup-app.vercel.app/api/upload", {
+      const response = await fetch("https://www.cloud-backup-app.vercel.app/api/upload", {
         method: "POST",
         body: formData,
         headers: {
