@@ -37,7 +37,16 @@ declare global {
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-app.use(cors());
+const options = [
+  cors({
+    origin: '*',
+    methods: '*',
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  })
+];
+
+app.use(options);
 
 // Parse URL-encoded and JSON request bodies
 app.use(express.urlencoded({ extended: true }));
